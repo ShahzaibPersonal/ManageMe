@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Manage Me</string>
+    <string name="add_title_of_task">Add Title of Task</string>
+    <string name="auto_fill_string">Title Task</string>
+    <string name="set">Set</string>
+    <string name="add_description">Add Description</string>
+
+</resources>
