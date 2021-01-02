@@ -6,43 +6,47 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity<firstTime> extends AppCompatActivity {
+    boolean firstTime=true;
+
 
     ListView taskListView;
-    static ArrayList<String> taskArrayList;
-    static ArrayAdapter<String> taskArrayAdapter;
+    static ArrayList<String> taskItemArrayList;
+    static ArrayAdapter<String> taskItemArrayAdapter;
     SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initializer();
 //        new CountDownTimer(3000, 3000) {
-////
-////            public void onTick(long millisUntilFinished) {
-////                setContentView(R.layout.activity_main_page);
-////            }
-////
-////            public void onFinish() {
-////                setContentView(R.layout.activity_main);
-////            }
-////        }.start();
-
+//
+//            public void onTick(long millisUntilFinished) {
+//                setContentView(R.layout.activity_main_page);
+//            }
+//
+//            public void onFinish() {
+//
+//            }
+//        }.start();
+        initializer();
         sharedPreferences = getApplicationContext().getSharedPreferences("com.example.manage_me", Context.MODE_PRIVATE);
 
-        taskArrayList.add(0, "Shahzaib");
-        taskArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, taskArrayList);
+        HashSet<String> set= (HashSet<String>) sharedPreferences.getStringSet("task",null);
+
+        taskItemArrayList.add(0, "Shahzaib");
+        taskItemArrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, taskItemArrayList);
         taskListView = (ListView) findViewById(R.id.taskListView);
-        taskListView.setAdapter(taskArrayAdapter);
+        taskListView.setAdapter(taskItemArrayAdapter);
+
 
         taskListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -58,6 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializer() {
         taskListView=findViewById(R.id.taskListView);
-        taskArrayList=new ArrayList<>();
+        taskItemArrayList =new ArrayList<>();
     }
 }

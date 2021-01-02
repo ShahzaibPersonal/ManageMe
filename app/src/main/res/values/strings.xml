@@ -4,5 +4,6 @@
     <string name="auto_fill_string">Title Task</string>
     <string name="set">Set</string>
     <string name="add_description">Add Description</string>
+    <string name="new_task">New Task</string>
 
 </resources>

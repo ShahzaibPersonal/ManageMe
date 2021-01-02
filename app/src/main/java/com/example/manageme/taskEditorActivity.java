@@ -10,6 +10,8 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.HashSet;
+
 public class taskEditorActivity extends AppCompatActivity {
     int dataPosition;
     //String titleExtraTaskEditor;
@@ -25,7 +27,11 @@ public class taskEditorActivity extends AppCompatActivity {
 
         initializer();
         if(dataPosition != -1){
-          titleTextTaskEditor.setText(MainActivity.taskArrayList.get(dataPosition));
+          titleTextTaskEditor.setText(MainActivity.taskItemArrayList.get(dataPosition));
+        }
+        else{
+            MainActivity.taskItemArrayList.add("");
+            dataPosition=MainActivity.taskItemArrayList.size()-1;
         }
         titleTextTaskEditor.addTextChangedListener(new TextWatcher() {
             @Override
@@ -35,9 +41,12 @@ public class taskEditorActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                MainActivity.taskArrayList.set(dataPosition,String.valueOf(s));
-                MainActivity.taskArrayAdapter.notifyDataSetChanged();
+                MainActivity.taskItemArrayList.set(dataPosition,String.valueOf(s));
+                MainActivity.taskItemArrayAdapter.notifyDataSetChanged();
 
+                SharedPreferences sharedPreferences=getSharedPreferences("com.example.manageme",MODE_PRIVATE);
+                HashSet<String> set=new HashSet<>(MainActivity.taskItemArrayList);
+                sharedPreferences.edit().putStringSet("task",set).apply();
             }
 
             @Override
@@ -57,5 +66,6 @@ public class taskEditorActivity extends AppCompatActivity {
     }
 
     public void doneUpdate(View view) {
+
     }
 }
