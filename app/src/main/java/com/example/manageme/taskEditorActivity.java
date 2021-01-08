@@ -2,28 +2,47 @@ package com.example.manageme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.time.Month;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 
 public class taskEditorActivity extends AppCompatActivity {
     int dataPosition;
     TextView titleTextTaskEditor;
     TextView descriptionTextTextEditor;
+    Button calenderButton;
     Intent intent;
     ArrayList<Task> arrayList;
     Gson gson;
+
+    //date set
+    Calendar calendar;
+    DatePickerDialog datePickerDialog;
+
+    int year ;
+    int month ;
+    int dayOfMonth ;
+
     SharedPreferences sharedPreferences;
 
     @Override
@@ -87,13 +106,39 @@ public class taskEditorActivity extends AppCompatActivity {
         intent= getIntent();
         dataPosition =intent.getIntExtra("dataPosition",-1);
         sharedPreferences=getSharedPreferences("com.example.manage",MODE_PRIVATE);
+
+        calendar=Calendar.getInstance();
+        calenderButton=findViewById(R.id.calenderButton);
+
+         year = calendar.get(Calendar.YEAR);
+         month = calendar.get(Calendar.MONTH);
+         dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+         calendar.set(year,month,dayOfMonth);
     }
 
 
     public void doneUpdate(View view) {
         arrayList.get(dataPosition).setTaskTitle(titleTextTaskEditor.getText().toString());
         arrayList.get(dataPosition).setTaskDescription(descriptionTextTextEditor.getText().toString());
+        arrayList.get(dataPosition).setDue(calendar);
         String descriptionStore=gson.toJson(arrayList);
         sharedPreferences.edit().putString("identity_task",descriptionStore).apply();
+        //Log.i("calender ",calendar.toString());
+        Toast.makeText(getApplicationContext(),"Task Up Dated Successfully " + calendar.getTime(), Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void setCalender(View view) {
+
+        datePickerDialog = new DatePickerDialog(taskEditorActivity.this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        calendar.set(year,month,dayOfMonth);
+                        Log.i("Date Set is ",calendar.getTime().toString());
+                    }
+                }, year, month, dayOfMonth);
+        datePickerDialog.show();
     }
 }

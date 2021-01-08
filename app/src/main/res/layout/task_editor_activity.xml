@@ -39,10 +39,11 @@
                 android:textStyle="bold" />
 
             <Button
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:id="@+id/calenderButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
                 android:background="@drawable/ic_baseline_calendar_today_24"
-                android:paddingTop="10dp" />
+                android:onClick="setCalender"/>
 
         </LinearLayout>
 
