@@ -10,47 +10,55 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="48dp"
         android:paddingLeft="32dp"
-        android:paddingRight="32dp"
+        android:paddingTop="32dp"
+        android:paddingRight="32dp">
 
-
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <EditText
-            android:id="@+id/titleTextTaskEditor"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/auto_fill_string"
-            android:backgroundTint="@color/white"
-            android:ems="10"
-            android:hint="@string/add_title_of_task"
-            android:inputType="textPersonName"
-            android:textStyle="bold"
-            android:textSize="24dp"
-            android:textColor="@color/schema_heading"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.075" />
+            android:background="@drawable/custom_edit_text_light"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingTop="10dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="10dp">
+
+            <EditText
+                android:id="@+id/titleTextTaskEditor"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:autofillHints="@string/auto_fill_string"
+                android:backgroundTint="@color/schema_heading"
+                android:ems="10"
+                android:hint="@string/add_title_of_task"
+                android:inputType="textPersonName"
+                android:textColor="@color/schema_heading"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/ic_baseline_calendar_today_24"
+                android:paddingTop="10dp" />
+
+        </LinearLayout>
+
 
         <EditText
             android:id="@+id/descriptionTaskEditor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="@string/auto_fill_string"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="@color/schema_heading"
             android:ems="10"
             android:hint="@string/add_description"
             android:inputType="textPersonName"
             android:paddingTop="32dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.075" />
+            android:textColor="@color/primary_text_light"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/doneBtnNotesEditor"
@@ -59,9 +67,9 @@
             android:layout_gravity="right"
             android:layout_marginTop="32dp"
             android:background="@drawable/custom_button"
-            android:shadowColor="#333"
-            android:text="done"
             android:onClick="doneUpdate"
+            android:shadowColor="#333"
+            android:text="@string/done"
             android:textColor="@color/white" />
 
     </LinearLayout>

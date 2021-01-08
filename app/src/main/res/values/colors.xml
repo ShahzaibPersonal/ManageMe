@@ -7,5 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
     <color name="schema_heading">#FF1A72E7</color>
+    <!-- light mode -->
+    <color name="selected_edit_text_light">#eff0f2</color>
+    <color name="light_mode">#f9f9fa</color>
+    <color name="primary_text_light">#222222</color>
+    <color name="secondary_text_light">#455965</color>
+
+    <!-- dark mode -->
+    <color name="selected_edit_text_dark">#282a33</color>
+    <color name="dark_mode">#32343d</color>
+    <color name="primary_text_dark">#ffffff</color>
+    <color name="secondary_text_dark">#b0bdc6</color>
+
 </resources>

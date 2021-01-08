@@ -4,18 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="32dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
     tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edit_text_light"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="5dp">
+
+        <EditText
+            android:id="@+id/addDirectTaskEditText"
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="0.8"
+            android:backgroundTint="@color/schema_heading"
+            android:hint="@string/add_title_of_task"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/addButton"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="@drawable/ic_baseline_add_24" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/taskListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:scrollbarSize="4dp"
+        android:touchscreenBlocksFocus="?android:attr/windowSwipeToDismiss"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        />
+        app:layout_constraintVertical_bias="0.0" />
+
 
 </LinearLayout>
