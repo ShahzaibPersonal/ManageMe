@@ -10,28 +10,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingLeft="32dp"
+        android:paddingLeft="16dp"
         android:paddingTop="32dp"
-        android:paddingRight="32dp">
+        android:paddingRight="16dp"
+        android:paddingBottom="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edit_text_light"
             android:orientation="horizontal"
-            android:paddingLeft="15dp"
-            android:paddingTop="10dp"
-            android:paddingRight="15dp"
+            android:paddingStart="20dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="20dp"
             android:paddingBottom="10dp">
 
             <EditText
                 android:id="@+id/titleTextTaskEditor"
+                style="@style/Widget.AppCompat.AutoCompleteTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.75"
+                android:layout_weight="0.8"
                 android:autofillHints="@string/auto_fill_string"
                 android:backgroundTint="@color/schema_heading"
                 android:ems="10"
+                android:fontFamily="@font/open_sans"
                 android:hint="@string/add_title_of_task"
                 android:inputType="textPersonName"
                 android:textColor="@color/schema_heading"
@@ -39,14 +42,13 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/calenderButton"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
+                android:id="@+id/calenderButtonTaskEditor"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
                 android:background="@drawable/ic_baseline_calendar_today_24"
-                android:onClick="setCalender"/>
+                android:onClick="setCalender" />
 
         </LinearLayout>
-
 
         <EditText
             android:id="@+id/descriptionTaskEditor"
@@ -55,23 +57,45 @@
             android:autofillHints="@string/auto_fill_string"
             android:backgroundTint="@color/schema_heading"
             android:ems="10"
+            android:fontFamily="@font/open_sans_light"
             android:hint="@string/add_description"
             android:inputType="textPersonName"
             android:paddingTop="32dp"
             android:textColor="@color/primary_text_light"
             android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/doneBtnNotesEditor"
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:layout_gravity="right"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/custom_button"
-            android:onClick="doneUpdate"
-            android:shadowColor="#333"
-            android:text="@string/done"
-            android:textColor="@color/white" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/timerButtonTaskEditor"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/ic_baseline_alarm_24"
+                android:fontFamily="@font/open_sans"
+                android:onClick="setTimer"
+                android:shadowColor="#333"
+                android:text="@string/done"
+                android:textColor="@color/white"
+android:layout_weight="66.6"
+                />
+            <Button
+                android:id="@+id/doneBtnNotesEditor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/custom_button"
+                android:fontFamily="@font/open_sans"
+                android:onClick="doneUpdate"
+                android:shadowColor="#333"
+                android:text="@string/done"
+                android:textColor="@color/white"
+                android:layout_weight="33.3"/>
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
