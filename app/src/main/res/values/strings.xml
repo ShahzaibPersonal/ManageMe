@@ -6,5 +6,11 @@
     <string name="add_description">Add Description</string>
     <string name="new_task">New Task</string>
     <string name="done">done</string>
+    <string name="get_started">Get Started</string>
+    <string name="query">32+4</string>
+    <string name="timerText">30s</string>
+    <string name="scoreText">0/0</string>
+    <string name="_1">1</string>
+    <string name="_2">2</string>
 
 </resources>

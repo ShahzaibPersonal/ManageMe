@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.ManageMe" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
+
         <item name="colorPrimary">@color/schema_heading</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/light_mode</item>
@@ -9,8 +10,31 @@
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/primary_text_light</item>
+
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+        <item name="android:editTextStyle">@style/edit_text_view</item>
+
+
         <!-- Status bar color. -->
 
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="edit_text_view" parent="android:Widget.EditText">
+        <item name="android:background">@drawable/custom_edit_text_light</item>
+        <item name="android:textColor">@color/schema_heading</item>
+    </style>
+
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textColor">@color/primary_text_light</item>
+
+    </style>
+
+    <style name="ButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">@font/open_sans</item>
+        <item name="android:textColor">@color/primary_text_light</item>
+    </style>
+
 </resources>

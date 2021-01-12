@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
 
-    <color name="schema_heading">#FF1A72E7</color>
+    <color name="schema_heading">#2276E6</color>
     <!-- light mode -->
     <color name="selected_edit_text_light">#eff0f2</color>
     <color name="light_mode">#f9f9fa</color>

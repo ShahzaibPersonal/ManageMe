@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -12,22 +13,29 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_edit_text_light"
         android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingRight="12dp"
-        android:paddingBottom="5dp">
+        android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="10dp">
 
         <EditText
             android:id="@+id/addDirectTaskEditText"
             android:layout_width="0dp"
-            android:layout_height="72dp"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/secondary_text_light"
+            android:textColor="@color/schema_heading"
+
             android:layout_weight="0.8"
             android:backgroundTint="@color/schema_heading"
+
+            android:fontFamily="@font/open_sans"
             android:hint="@string/add_title_of_task"
-            android:textSize="22sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
         <Button
@@ -44,6 +52,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:background="@drawable/custom_list"
         android:scrollbarSize="4dp"
         android:touchscreenBlocksFocus="?android:attr/windowSwipeToDismiss"
         app:layout_constraintBottom_toBottomOf="parent"
