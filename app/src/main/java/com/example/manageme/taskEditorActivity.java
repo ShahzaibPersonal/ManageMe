@@ -104,7 +104,6 @@ public class taskEditorActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 MainActivity.taskItemArrayList.set(dataPosition, String.valueOf(s));
                 MainActivity.taskItemArrayAdapter.notifyDataSetChanged();
-
                 HashSet<String> set = new HashSet<>(MainActivity.taskItemArrayList);
                 sharedPreferences.edit().putStringSet("task", set).apply();
             }
@@ -202,7 +201,7 @@ public class taskEditorActivity extends AppCompatActivity {
 
     public void updateCalender() {
 
-        calendar=Calendar.getInstance();
+//        calendar=Calendar.getInstance();
         //  Log.i("Calender: ", String.valueOf(calendar.getTime()));
         Year = calendar.get(Calendar.YEAR);
         Month = calendar.get(Calendar.MONTH);

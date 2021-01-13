@@ -67,7 +67,7 @@
             android:hint="@string/add_description"
             android:inputType="textPersonName"
             android:paddingTop="32dp"
-            android:textColor="@color/primary_text_light"
+            android:textColor="@color/primary_text_dark"
             android:textSize="20sp" />
 
         <LinearLayout

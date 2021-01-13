@@ -40,7 +40,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Mange Me"
-        android:textColor="@color/primary_text_light"
+        android:textColor="@color/primary_text_dark"
         android:textSize="32sp"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Welcome to Mange Me"
-        android:textColor="@color/primary_text_light"
+        android:textColor="@color/primary_text_dark"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
