@@ -13,9 +13,6 @@ public class task {
     Boolean priority;
     MathMission mathMission;
 
-
-
-
     public MathMission getMathMission() {
         return mathMission;
     }
