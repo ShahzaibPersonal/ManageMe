@@ -35,9 +35,7 @@ public class splashView extends AppCompatActivity {
                 }
             }
         }, 2000);
-
     }
-
     private void initializer() {
         sharedPreferences=getSharedPreferences("com.example.manage",MODE_PRIVATE);
         firstTime=sharedPreferences.getBoolean("first_time",true);

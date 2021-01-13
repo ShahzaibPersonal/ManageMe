@@ -144,7 +144,6 @@ public class taskEditorActivity extends AppCompatActivity {
                                 calendar = Calendar.getInstance();
                                 calendar.set(Year, Month, DayOfMonth, hourOfDay, minute);
                                 Log.i("Calendar value Calendar", String.valueOf(calendar.getTime()));
-                                setAlarm(calendar);
                             }
 
                         }, HoursOfDay, Min, Is24HourView);
@@ -156,13 +155,13 @@ public class taskEditorActivity extends AppCompatActivity {
     }
 
 
-    private void setAlarm(Calendar calendar) {
+    private void setNotification(Calendar calendar) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlertReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, 0);
         intent.putExtra("identity_task", calendar);
-
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+
     }
 
     private void cancelAlarm() {
@@ -175,8 +174,8 @@ public class taskEditorActivity extends AppCompatActivity {
 
     public void doneUpdate(View view) {
 
-        String title= (String) titleTextTaskEditor.getText();
 
+        setNotification(calendar);
         arrayList.get(dataPosition).setTaskTitle(titleTextTaskEditor.getText().toString());
         arrayList.get(dataPosition).setTaskDescription(descriptionTextTextEditor.getText().toString());
         arrayList.get(dataPosition).setDue(calendar);
@@ -186,17 +185,17 @@ public class taskEditorActivity extends AppCompatActivity {
 
         //storing values of  date so it will show accordingly when user is on same page after setting his date.  NOTE: NOT ON LOAD CASE
         updateCalender();
-        newAlarm(calendar, title);
+        newAlarm(calendar);
         Toast.makeText(getApplicationContext(), "Task Updated Successfully", Toast.LENGTH_SHORT).show();
     }
 
-    private void newAlarm(Calendar calendar,String title) {
+    private void newAlarm(Calendar calendar) {
         int hour=calendar.get(Calendar.HOUR);
         int min=calendar.get(Calendar.MINUTE);
         Intent intent= new Intent(AlarmClock.ACTION_SET_ALARM);
         intent.putExtra(AlarmClock.EXTRA_HOUR,hour);
         intent.putExtra(AlarmClock.EXTRA_MINUTES,min);
-        intent.putExtra(AlarmClock.EXTRA_MESSAGE,title);
+
         startActivity(intent);
 
     }
@@ -240,6 +239,14 @@ public class taskEditorActivity extends AppCompatActivity {
         calendar.set(Year, Month, DayOfMonth, HoursOfDay, Min);
         Log.i("Line 144: ", String.valueOf(calendar.getTime()));
 
+    }
+
+    public void setOnetimeTimer(Context context){
+        AlarmManager am=(AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        Intent intent = new Intent(context, AlertReceiver.class);
+        intent.putExtra("Shahzaib", Boolean.TRUE);
+        PendingIntent pi = PendingIntent.getBroadcast(context, 0, intent, 0);
+        am.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), pi);
     }
 
     public void setPriority(View view) {
