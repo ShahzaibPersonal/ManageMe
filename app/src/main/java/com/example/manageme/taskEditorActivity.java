@@ -142,7 +142,19 @@ public class taskEditorActivity extends AppCompatActivity {
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 calendar = Calendar.getInstance();
                                 calendar.set(Year, Month, DayOfMonth, hourOfDay, minute);
-                                Log.i("Calendar value Calendar", String.valueOf(calendar.getTime()));
+                                if(hourOfDay>=0 && hourOfDay<12){
+                                   calendar.set(Calendar.AM,1);
+                                } else {
+                                    if(hourOfDay == 12){
+                                        calendar.set(Calendar.PM,1);
+                                        calendar.set(Calendar.AM,0);
+
+                                    } else{
+                                        calendar.set(Calendar.PM,1);
+                                        calendar.set(Calendar.AM,0);
+                                    }
+                                }
+                                Log.i("calendar", String.valueOf("AM_PM: "+ calendar.get(Calendar.AM) + calendar.get(Calendar.PM)));
                             }
 
                         }, HoursOfDay, Min, Is24HourView);
@@ -191,16 +203,32 @@ public class taskEditorActivity extends AppCompatActivity {
     private void newAlarm(Calendar calendar) {
         int hour=calendar.get(Calendar.HOUR);
         int min=calendar.get(Calendar.MINUTE);
+        int day=calendar.get(Calendar.DAY_OF_YEAR);
+
         Intent intent= new Intent(AlarmClock.ACTION_SET_ALARM);
         intent.putExtra(AlarmClock.EXTRA_HOUR,hour);
         intent.putExtra(AlarmClock.EXTRA_MINUTES,min);
+        intent.putExtra(AlarmClock.EXTRA_DAYS,day);
 
-        startActivity(intent);
+
+
+        Calendar c = Calendar.getInstance();
+
+
+        if(calendar.get(Calendar.AM)== 1){
+            intent.putExtra(AlarmClock.EXTRA_IS_PM, false);
+            Log.i("calendar","First is run");
+
+        }else{
+            intent.putExtra(AlarmClock.EXTRA_IS_PM, true);
+            Log.i("calendar","Sec is run");
+        }
+
+       startActivity(intent);
 
     }
 
     public void updateCalender() {
-
 //        calendar=Calendar.getInstance();
         //  Log.i("Calender: ", String.valueOf(calendar.getTime()));
         Year = calendar.get(Calendar.YEAR);
