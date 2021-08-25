@@ -1,9 +1,8 @@
 
 # ManageMe
-Manege Me is Android Native and JSON based Todo app with multiple functionalities that will enhance usabiltiy for our user.
+Manage Me is a Self Management Application. It enforces the organization of your lifestyle. It is Android Native and JSON-based Todo app with multiple functionalities that will enhance usability for our users.
 
-You have multiple screens. All Data was stored locally with help of JSON while using shared Preferences to its full usabiltity and extents. This app can help you understand how we uson to Stringfy whole arrays. You can also understand file managment as all professional practices are performed in this app. External vecotrs and app icon is also included. Both Light mode and dark modes are enabled.
-
+You have multiple screens. All Data was stored locally with help of JSON while using shared Preferences to its full usability and extent. This app can help you understand how we can use JSON to Stringify whole arrays. You can also understand file management as all professional practices are performed in this app. External vectors and app icon is also included. Both Light mode and dark modes are enabled.
 Well comment code
 
 ![1  Welcome Page](https://user-images.githubusercontent.com/52831453/130864341-e2347969-e994-49d2-b711-ba39cbb04a74.jpeg)
